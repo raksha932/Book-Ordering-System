@@ -1,4 +1,5 @@
 const mongoose = require('mongoose');
+let lastConnectionError = null;
 
 /**
  * Connect to MongoDB database using Mongoose
@@ -8,19 +9,23 @@ const connectDB = async () => {
   try {
     // Reuse existing connection in serverless execution environments
     if (mongoose.connection.readyState >= 1) {
+      lastConnectionError = null;
       return mongoose.connection;
     }
 
     const mongoURI = process.env.MONGODB_URI;
 
     if (!mongoURI || mongoURI === 'your_mongodb_connection_string') {
-      console.warn('⚠️  Warning: MONGODB_URI is not set or still contains placeholder in backend/.env');
+      lastConnectionError = 'MONGODB_URI environment variable is not defined or is placeholder';
+      console.warn('⚠️  Warning: MONGODB_URI is not set or still contains placeholder');
       return;
     }
 
     const conn = await mongoose.connect(mongoURI, {
-      serverSelectionTimeoutMS: 5000
+      serverSelectionTimeoutMS: 10000,
+      bufferCommands: false
     });
+    lastConnectionError = null;
     console.log(`MongoDB connected successfully: ${conn.connection.host}`);
 
     // Migrate/sync legacy users into isolated Customer and SuperAdmin collections if needed
@@ -72,8 +77,11 @@ const connectDB = async () => {
     }
 
   } catch (error) {
+    lastConnectionError = error.message;
     console.error(`MongoDB connection error: ${error.message}`);
   }
 };
+
+connectDB.getLastError = () => lastConnectionError;
 
 module.exports = connectDB;
