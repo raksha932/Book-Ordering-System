@@ -8,6 +8,7 @@ const Login = () => {
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
   const [error, setError] = useState('');
+  const [errorDetails, setErrorDetails] = useState('');
   const [accountNotFound, setAccountNotFound] = useState(false);
   const [loading, setLoading] = useState(false);
   const { loginCustomer } = useAuth();
@@ -16,6 +17,7 @@ const Login = () => {
   const handleLogin = async (e) => {
     e.preventDefault();
     setError('');
+    setErrorDetails('');
     setAccountNotFound(false);
 
     if (!email.trim() || !password) {
@@ -31,6 +33,7 @@ const Login = () => {
       navigate('/home');
     } else {
       setError(res.message);
+      setErrorDetails(res.details || '');
       if (res.notFound) {
         setAccountNotFound(true);
       }
@@ -65,6 +68,11 @@ const Login = () => {
               <AlertCircle className="w-4 h-4 shrink-0 text-rose-600 mt-0.5" />
               <span className="flex-1 leading-relaxed">{error}</span>
             </div>
+            {errorDetails && (
+              <div className="text-[11px] bg-rose-100/70 p-2 rounded-lg font-mono text-rose-900 break-all border border-rose-200/50">
+                <span className="font-bold">Reason:</span> {errorDetails}
+              </div>
+            )}
           </div>
         )}
 

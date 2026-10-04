@@ -145,13 +145,15 @@ export const AuthProvider = ({ children }) => {
       return {
         success: false,
         message: res.message || 'Login failed',
+        details: res.details || null,
         notFound: res.notFound || false
       };
     } catch (err) {
       return {
         success: false,
         notFound: err.notFound || err.data?.notFound || false,
-        message: err.data?.message || err.message || 'Customer authentication failed'
+        message: err.data?.message || err.message || 'Customer authentication failed',
+        details: err.data?.details || null
       };
     }
   };
@@ -170,13 +172,15 @@ export const AuthProvider = ({ children }) => {
       return {
         success: false,
         message: res.message || 'Authentication failed',
+        details: res.details || null,
         notFound: res.notFound || false
       };
     } catch (err) {
       return {
         success: false,
         notFound: err.notFound || err.data?.notFound || false,
-        message: err.data?.message || err.message || 'Super Admin authentication failed'
+        message: err.data?.message || err.message || 'Super Admin authentication failed',
+        details: err.data?.details || null
       };
     }
   };
