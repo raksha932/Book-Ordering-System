@@ -6,6 +6,11 @@ const mongoose = require('mongoose');
  */
 const connectDB = async () => {
   try {
+    // Reuse existing connection in serverless execution environments
+    if (mongoose.connection.readyState >= 1) {
+      return mongoose.connection;
+    }
+
     const mongoURI = process.env.MONGODB_URI;
 
     if (!mongoURI || mongoURI === 'your_mongodb_connection_string') {
