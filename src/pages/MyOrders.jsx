@@ -110,7 +110,7 @@ const MyOrders = () => {
                       <span className="text-[11px] font-bold text-slate-400 uppercase tracking-wider block">
                         Total Amount
                       </span>
-                      <span className="text-sm font-extrabold text-slate-900">${order.total.toFixed(2)}</span>
+                      <span className="text-sm font-extrabold text-slate-900">₹{order.total.toFixed(2)}</span>
                     </div>
                   </div>
 
@@ -154,11 +154,11 @@ const MyOrders = () => {
                           </h4>
                           <p className="text-xs text-slate-500">by {item.author}</p>
                           <p className="text-xs font-semibold text-slate-600 mt-1">
-                            Quantity: {item.quantity} × ${item.price.toFixed(2)}
+                            Quantity: {item.quantity} × ₹{item.price.toFixed(2)}
                           </p>
                         </div>
                         <div className="text-right font-extrabold text-slate-900 text-sm">
-                          ${(item.price * item.quantity).toFixed(2)}
+                          ₹{(item.price * item.quantity).toFixed(2)}
                         </div>
                       </div>
                     ))}
@@ -178,7 +178,7 @@ const MyOrders = () => {
                       <CreditCard className="w-4 h-4 text-emerald-500 shrink-0 mt-0.5" />
                       <div>
                         <span className="font-bold text-slate-700 block">Payment Details:</span>
-                        <span>{order.paymentMethod} (Total: ${order.total.toFixed(2)})</span>
+                        <span>{order.paymentMethod} (Total: ₹{order.total.toFixed(2)})</span>
                       </div>
                     </div>
                   </div>

@@ -155,7 +155,7 @@ const Home = () => {
                         </div>
                         <div className="flex items-center justify-between pt-1">
                           <span className="text-base font-extrabold text-slate-900">
-                            ${books[0].price.toFixed(2)}
+                            ₹{books[0].price.toFixed(2)}
                           </span>
                           <Link
                             to={`/books/${books[0].id}`}
@@ -193,7 +193,7 @@ const Home = () => {
                         </div>
                         <div className="flex items-center justify-between pt-1">
                           <span className="text-base font-extrabold text-slate-900">
-                            ${books[1].price.toFixed(2)}
+                            ₹{books[1].price.toFixed(2)}
                           </span>
                           <Link
                             to={`/books/${books[1].id}`}
@@ -247,7 +247,7 @@ const Home = () => {
             </div>
             <div>
               <h4 className="text-sm font-bold text-slate-800">Free Campus Delivery</h4>
-              <p className="text-xs text-slate-500">On all orders over $45</p>
+              <p className="text-xs text-slate-500">On all orders over ₹499</p>
             </div>
           </div>
 

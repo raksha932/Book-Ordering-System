@@ -201,7 +201,7 @@ const ManageBooks = () => {
 
                     {/* Price */}
                     <td className="py-3.5 px-6 font-extrabold text-slate-900">
-                      ${book.price.toFixed(2)}
+                      ₹{book.price.toFixed(2)}
                     </td>
 
                     {/* In Stock toggle */}
@@ -318,7 +318,7 @@ const ManageBooks = () => {
 
               <div className="grid grid-cols-2 gap-3">
                 <div>
-                  <label className="block text-xs font-bold text-slate-700 uppercase mb-1">Price ($) *</label>
+                  <label className="block text-xs font-bold text-slate-700 uppercase mb-1">Price (₹) *</label>
                   <input
                     type="number"
                     step="0.01"

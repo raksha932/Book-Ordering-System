@@ -134,7 +134,7 @@ const Checkout = () => {
                     {item.title} × {item.quantity}
                   </span>
                   <span className="font-semibold text-slate-900">
-                    ${(item.price * item.quantity).toFixed(2)}
+                    ₹{(item.price * item.quantity).toFixed(2)}
                   </span>
                 </div>
               ))}
@@ -143,7 +143,7 @@ const Checkout = () => {
 
           <div className="pt-3 border-t border-slate-100 flex justify-between items-baseline">
             <span className="font-bold text-slate-800">Total Amount</span>
-            <span className="text-xl font-black text-indigo-600">${completedOrder.total.toFixed(2)}</span>
+            <span className="text-xl font-black text-indigo-600">₹{completedOrder.total.toFixed(2)}</span>
           </div>
 
           <div className="pt-2 text-xs text-slate-500 bg-slate-50 p-3 rounded-xl space-y-1">
@@ -391,10 +391,10 @@ const Checkout = () => {
                 </div>
                 <div className="flex-1 min-w-0">
                   <h4 className="font-bold text-slate-800 truncate">{book.title}</h4>
-                  <p className="text-xs text-slate-500">Qty: {quantity} × ${book.price.toFixed(2)}</p>
+                  <p className="text-xs text-slate-500">Qty: {quantity} × ₹{book.price.toFixed(2)}</p>
                 </div>
                 <div className="font-bold text-slate-900 text-right">
-                  ${(book.price * quantity).toFixed(2)}
+                  ₹{(book.price * quantity).toFixed(2)}
                 </div>
               </div>
             ))}
@@ -403,21 +403,21 @@ const Checkout = () => {
           <div className="space-y-2 pt-4 border-t border-slate-100 text-sm">
             <div className="flex justify-between text-slate-600">
               <span>Subtotal</span>
-              <span className="font-semibold text-slate-900">${subtotal.toFixed(2)}</span>
+              <span className="font-semibold text-slate-900">₹{subtotal.toFixed(2)}</span>
             </div>
             <div className="flex justify-between text-slate-600">
               <span>Tax (8%)</span>
-              <span className="font-semibold text-slate-900">${tax.toFixed(2)}</span>
+              <span className="font-semibold text-slate-900">₹{tax.toFixed(2)}</span>
             </div>
             <div className="flex justify-between text-slate-600">
               <span>Shipping</span>
               <span className="font-semibold text-slate-900">
-                {shipping === 0 ? <span className="text-emerald-600 font-bold">FREE</span> : `$${shipping.toFixed(2)}`}
+                {shipping === 0 ? <span className="text-emerald-600 font-bold">FREE</span> : `₹${shipping.toFixed(2)}`}
               </span>
             </div>
             <div className="pt-3 border-t border-slate-100 flex justify-between items-baseline">
               <span className="text-base font-bold text-slate-900">Total Payable</span>
-              <span className="text-2xl font-black text-indigo-600">${total.toFixed(2)}</span>
+              <span className="text-2xl font-black text-indigo-600">₹{total.toFixed(2)}</span>
             </div>
           </div>
 
@@ -431,7 +431,7 @@ const Checkout = () => {
             ) : (
               <>
                 <ShieldCheck className="w-5 h-5" />
-                <span>Place Order (${total.toFixed(2)})</span>
+                <span>Place Order (₹{total.toFixed(2)})</span>
               </>
             )}
           </button>

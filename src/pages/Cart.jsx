@@ -116,7 +116,7 @@ const Cart = () => {
                   </h3>
                   <p className="text-xs text-slate-500">by {book.author}</p>
                   <div className="text-sm font-extrabold text-slate-900 pt-1">
-                    ${book.price.toFixed(2)} each
+                    ₹{book.price.toFixed(2)} each
                   </div>
                 </div>
 
@@ -145,7 +145,7 @@ const Cart = () => {
                   {/* Subtotal for line item */}
                   <div className="text-right min-w-[70px]">
                     <span className="text-base font-black text-indigo-600">
-                      ${(book.price * quantity).toFixed(2)}
+                      ₹{(book.price * quantity).toFixed(2)}
                     </span>
                   </div>
 
@@ -182,14 +182,14 @@ const Cart = () => {
           <div className="space-y-3 text-sm">
             <div className="flex justify-between text-slate-600">
               <span>Subtotal</span>
-              <span className="font-semibold text-slate-900">${subtotal.toFixed(2)}</span>
+              <span className="font-semibold text-slate-900">₹{subtotal.toFixed(2)}</span>
             </div>
 
             <div className="flex justify-between text-slate-600">
               <span className="flex items-center gap-1">
                 <span>Estimated Tax (8%)</span>
               </span>
-              <span className="font-semibold text-slate-900">${tax.toFixed(2)}</span>
+              <span className="font-semibold text-slate-900">₹{tax.toFixed(2)}</span>
             </div>
 
             <div className="flex justify-between text-slate-600">
@@ -200,20 +200,20 @@ const Cart = () => {
                 {shipping === 0 ? (
                   <span className="text-emerald-600 font-bold">FREE</span>
                 ) : (
-                  `$${shipping.toFixed(2)}`
+                  `₹${shipping.toFixed(2)}`
                 )}
               </span>
             </div>
 
             {shipping > 0 && (
               <p className="text-[11px] text-slate-400 italic">
-                Add ${(45 - subtotal).toFixed(2)} more to qualify for Free Shipping!
+                Add ₹{(45 - subtotal).toFixed(2)} more to qualify for Free Shipping!
               </p>
             )}
 
             <div className="pt-3 border-t border-slate-100 flex justify-between items-baseline">
               <span className="text-base font-bold text-slate-900">Total</span>
-              <span className="text-2xl font-black text-indigo-600">${total.toFixed(2)}</span>
+              <span className="text-2xl font-black text-indigo-600">₹{total.toFixed(2)}</span>
             </div>
           </div>
 

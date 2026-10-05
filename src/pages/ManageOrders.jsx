@@ -154,7 +154,7 @@ const ManageOrders = () => {
                         </td>
 
                         <td className="py-3.5 px-6 font-black text-slate-900">
-                          ${(Number(order.total) || 0).toFixed(2)}
+                          ₹{(Number(order.total) || 0).toFixed(2)}
                         </td>
 
                         <td className="py-3.5 px-6">
@@ -221,7 +221,7 @@ const ManageOrders = () => {
                                       </h5>
                                       <p className="text-[11px] text-slate-400">Qty: {item.quantity}</p>
                                       <p className="text-xs font-extrabold text-indigo-600">
-                                        ${(item.price * item.quantity).toFixed(2)}
+                                        ₹{(item.price * item.quantity).toFixed(2)}
                                       </p>
                                     </div>
                                   </div>

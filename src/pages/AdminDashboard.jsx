@@ -1,7 +1,7 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
 import { 
-  DollarSign, 
+  IndianRupee, 
   ShoppingBag, 
   BookOpen, 
   Users, 
@@ -82,11 +82,11 @@ const AdminDashboard = () => {
               Total Revenue
             </span>
             <div className="w-10 h-10 rounded-xl bg-emerald-50 text-emerald-600 flex items-center justify-center">
-              <DollarSign className="w-5 h-5" />
+              <IndianRupee className="w-5 h-5" />
             </div>
           </div>
           <div className="text-2xl sm:text-3xl font-black text-slate-900">
-            ${totalRevenue.toFixed(2)}
+            ₹{totalRevenue.toFixed(2)}
           </div>
           <div className="text-xs text-slate-500 font-medium">
             Live database total
@@ -185,7 +185,7 @@ const AdminDashboard = () => {
                     <td className="py-3.5 px-6 font-bold text-indigo-600">{ord.id}</td>
                     <td className="py-3.5 px-6 text-slate-900">{ord.customer?.name || 'Customer'}</td>
                     <td className="py-3.5 px-6">{(ord.items?.length || 0)} titles</td>
-                    <td className="py-3.5 px-6 font-extrabold text-slate-900">${(Number(ord.total) || 0).toFixed(2)}</td>
+                    <td className="py-3.5 px-6 font-extrabold text-slate-900">₹{(Number(ord.total) || 0).toFixed(2)}</td>
                     <td className="py-3.5 px-6">
                       <span className={`inline-block px-2.5 py-0.5 rounded-full text-xs font-bold ${
                         ord.status === 'Delivered'

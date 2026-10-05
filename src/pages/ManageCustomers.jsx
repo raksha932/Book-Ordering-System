@@ -247,7 +247,7 @@ const ManageCustomers = () => {
                                     </div>
 
                                     <div className="text-right sm:text-right shrink-0">
-                                      <span className="font-black text-slate-900 block">${(Number(ord.total) || 0).toFixed(2)}</span>
+                                      <span className="font-black text-slate-900 block">₹{(Number(ord.total) || 0).toFixed(2)}</span>
                                       <span className="text-[11px] text-slate-500 block">{ord.paymentMethod}</span>
                                     </div>
                                   </div>

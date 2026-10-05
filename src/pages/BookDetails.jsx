@@ -168,15 +168,15 @@ const BookDetails = () => {
               {/* Price Block */}
               <div className="p-4 bg-slate-50 rounded-2xl border border-slate-200/80 flex items-baseline gap-4">
                 <span className="text-3xl sm:text-4xl font-black text-indigo-600">
-                  ${book.price.toFixed(2)}
+                  ₹{book.price.toFixed(2)}
                 </span>
                 {book.originalPrice && book.originalPrice > book.price && (
                   <>
                     <span className="text-base text-slate-400 line-through">
-                      ${book.originalPrice.toFixed(2)}
+                      ₹{book.originalPrice.toFixed(2)}
                     </span>
                     <span className="text-xs font-bold text-emerald-600 bg-emerald-100 px-2 py-0.5 rounded-md">
-                      Save ${(book.originalPrice - book.price).toFixed(2)} (
+                      Save ₹{(book.originalPrice - book.price).toFixed(2)} (
                       {Math.round(((book.originalPrice - book.price) / book.originalPrice) * 100)}%)
                     </span>
                   </>
@@ -227,7 +227,7 @@ const BookDetails = () => {
                   }`}
                 >
                   <ShoppingCart className="w-5 h-5" />
-                  <span>{book.inStock ? `Add to Cart - $${(book.price * quantity).toFixed(2)}` : 'Out of Stock'}</span>
+                  <span>{book.inStock ? `Add to Cart - ₹${(book.price * quantity).toFixed(2)}` : 'Out of Stock'}</span>
                 </button>
               </div>
 

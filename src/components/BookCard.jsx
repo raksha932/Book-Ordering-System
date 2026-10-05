@@ -75,11 +75,11 @@ const BookCard = ({ book }) => {
         <div className="mt-auto pt-3 border-t border-slate-100 flex items-baseline justify-between">
           <div className="flex items-baseline gap-2">
             <span className="text-lg font-extrabold text-slate-900">
-              ${book.price.toFixed(2)}
+              ₹{book.price.toFixed(2)}
             </span>
             {book.originalPrice && book.originalPrice > book.price && (
               <span className="text-xs text-slate-400 line-through">
-                ${book.originalPrice.toFixed(2)}
+                ₹{book.originalPrice.toFixed(2)}
               </span>
             )}
           </div>
