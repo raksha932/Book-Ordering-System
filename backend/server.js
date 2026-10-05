@@ -1,10 +1,13 @@
 const express = require('express');
 const cors = require('cors');
 const dotenv = require('dotenv');
-const connectDB = require('./config/db');
+const path = require('path');
 
-// Load environment variables from .env
+// Load environment variables from backend/.env and current working directory
+dotenv.config({ path: path.join(__dirname, '.env') });
 dotenv.config();
+
+const connectDB = require('./config/db');
 
 // Route Handlers
 const authRoutes = require('./routes/authRoutes');
@@ -65,8 +68,8 @@ app.use((err, req, res, next) => {
   });
 });
 
-// Start Express Server only when run directly (not serverless)
-if (!process.env.VERCEL && require.main === module) {
+// Start Express Server locally (not in serverless environment)
+if (!process.env.VERCEL && !process.env.IS_SERVERLESS) {
   const PORT = process.env.PORT || 5000;
   app.listen(PORT, () => {
     console.log(`Server running on port ${PORT}`);
