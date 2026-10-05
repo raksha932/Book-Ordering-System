@@ -13,7 +13,7 @@ const connectDB = async () => {
       return mongoose.connection;
     }
 
-    const mongoURI = process.env.MONGODB_URI;
+    const mongoURI = process.env.MONGODB_URI || process.env.MONGO_URI || process.env.MONGODB_URL || process.env.DATABASE_URL;
 
     if (!mongoURI || mongoURI === 'your_mongodb_connection_string') {
       lastConnectionError = 'MONGODB_URI environment variable is not defined or is placeholder';

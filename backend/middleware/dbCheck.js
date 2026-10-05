@@ -15,8 +15,9 @@ const checkDBConnection = async (req, res, next) => {
   }
 
   if (mongoose.connection.readyState !== 1) {
+    const uriValue = process.env.MONGODB_URI || process.env.MONGO_URI || process.env.MONGODB_URL || process.env.DATABASE_URL;
     let diagnosticMsg = 'MongoDB database is currently offline or unreachable.';
-    if (!process.env.MONGODB_URI || process.env.MONGODB_URI === 'your_mongodb_connection_string') {
+    if (!uriValue || uriValue === 'your_mongodb_connection_string') {
       diagnosticMsg = 'MONGODB_URI is not set in Vercel Environment Variables. Go to Vercel Dashboard > Settings > Environment Variables, add MONGODB_URI, then Redeploy.';
     } else {
       const errDetail = connectDB.getLastError ? connectDB.getLastError() : '';
